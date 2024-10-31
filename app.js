@@ -1,12 +1,14 @@
 import express from 'express';
+import { getAllCocktails, createCocktail } from './controllers/cocktailController.js';
+
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello from Express!');
-});
+// Middleware для парсинга JSON
+app.use(express.json());
 
-app.get('/test', (req, res) => {
-    res.send('Test route is working!');
-});
+// Маршруты для коктейлей
+app.get('/cocktails', getAllCocktails);
+app.post('/cocktails', createCocktail);
 
+// Экспортируйте app
 export default app;

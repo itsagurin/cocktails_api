@@ -11,10 +11,7 @@ model Cocktail {
   id           Int          @id @default(autoincrement())
   name         String       @db.VarChar(255)
   category     String?      @db.VarChar(255)
-  glass        String?      @db.VarChar(255)
   instructions String?      @db.VarChar(65535)
-  imageUrl     String?      @db.VarChar(255) @map("image_url")
-  alcoholic    Boolean?
   createdAt    DateTime?    @default(now()) @map("created_at")
   updatedAt    DateTime?    @updatedAt      @map("updated_at")
 
@@ -26,11 +23,8 @@ model Ingredient {
   name         String       @db.VarChar(255)
   description  String?      @db.VarChar(65535)
   alcohol      Boolean?
-  percentage   Int?
-  type         String?      @db.VarChar(255)
   createdAt    DateTime?    @default(now()) @map("created_at")
   updatedAt    DateTime?    @updatedAt      @map("updated_at")
-  imageUrl     String?      @db.VarChar(255) @map("image_url")
 
   cocktails    CocktailIngredient[]
 }
