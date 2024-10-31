@@ -1,0 +1,84 @@
+cocktail-api/
+│
+├── controllers/
+│       ├── cocktailController.js
+│       └── ingredientController.js
+│   models/
+│       ├── Cocktail.js
+│       └── Ingredient.js
+│   routes/
+│       ├── cocktailRoutes.js
+│       └── ingredientRoutes.js
+│   utils/
+│       ├── db.js (подключение к базе данных)
+│       └── validator.js (валидация данных)
+├── app.js (основной файл приложения)
+├── index.js (точка входа)
+├── tests/
+│   ├── unit/
+│   │   ├── cocktailController.test.js
+│   │   └── ingredientController.test.js
+│   └── integration/
+│       ├── cocktailRoutes.test.js
+│       └── ingredientRoutes.test.js
+├── docs/
+│   └── api-docs.js (Swagger/OpenAPI документация)
+├── .env (файл с переменными окружения)
+├── .gitignore
+├── package.json
+└── README.md
+
+src/
+
+controllers/
+
+cocktailController.js: Содержит логику обработки запросов, связанных с коктейлями (GET, POST, PUT, DELETE).
+ingredientController.js: Содержит логику обработки запросов, связанных с ингредиентами (GET, POST, PUT, DELETE).
+
+
+models/
+
+Cocktail.js: Определяет модель данных для коктейля, включая поля id, name, category, instructions, ingredients.
+Ingredient.js: Определяет модель данных для ингредиента, включая поля id, name, description, image.
+
+
+routes/
+
+cocktailRoutes.js: Определяет маршруты API для работы с коктейлями.
+ingredientRoutes.js: Определяет маршруты API для работы с ингредиентами.
+
+
+utils/
+
+db.js: Содержит логику подключения к базе данных PostgreSQL.
+validator.js: Содержит функции для валидации входных данных с помощью библиотеки Joi.
+
+
+app.js: Основной файл приложения, где настраивается Express-сервер и подключаются маршруты.
+index.js: Точка входа в приложение, запускающая сервер.
+
+tests/
+
+unit/
+
+cocktailController.test.js: Содержит модульные тесты для cocktailController.js.
+ingredientController.test.js: Содержит модульные тесты для ingredientController.js.
+
+
+integration/
+
+cocktailRoutes.test.js: Содержит интеграционные тесты для маршрутов, связанных с коктейлями.
+ingredientRoutes.test.js: Содержит интеграционные тесты для маршрутов, связанных с ингредиентами.
+
+
+
+docs/
+
+api-docs.js: Содержит конфигурацию Swagger/OpenAPI для генерации интерактивной документации API.
+
+Другие файлы:
+
+.env: Файл с переменными окружения (например, строка подключения к базе данных).
+.gitignore: Определяет, какие файлы и папки игнорировать при использовании Git.
+package.json: Содержит метаданные проекта и зависимости.
+README.md: Файл с описанием проекта, инструкциями по установке и использованию.

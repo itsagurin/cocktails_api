@@ -4,5 +4,43 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
+}
+
+model Cocktail {
+  id           Int          @id @default(autoincrement())
+  name         String       @db.VarChar(255)
+  category     String?      @db.VarChar(255)
+  glass        String?      @db.VarChar(255)
+  instructions String?      @db.VarChar(65535)
+  imageUrl     String?      @db.VarChar(255) @map("image_url")
+  alcoholic    Boolean?
+  createdAt    DateTime?    @default(now()) @map("created_at")
+  updatedAt    DateTime?    @updatedAt      @map("updated_at")
+
+  ingredients  CocktailIngredient[]
+}
+
+model Ingredient {
+  id           Int          @id @default(autoincrement())
+  name         String       @db.VarChar(255)
+  description  String?      @db.VarChar(65535)
+  alcohol      Boolean?
+  percentage   Int?
+  type         String?      @db.VarChar(255)
+  createdAt    DateTime?    @default(now()) @map("created_at")
+  updatedAt    DateTime?    @updatedAt      @map("updated_at")
+  imageUrl     String?      @db.VarChar(255) @map("image_url")
+
+  cocktails    CocktailIngredient[]
+}
+
+model CocktailIngredient {
+  cocktail     Cocktail   @relation(fields: [cocktailId], references: [id], onDelete: Cascade)
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
+  measure      String?    @db.VarChar(255)
+  cocktailId   Int
+  ingredientId Int
+
+  @@id([cocktailId, ingredientId])
 }
