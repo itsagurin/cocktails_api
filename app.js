@@ -3,12 +3,11 @@ import { getAllCocktails, createCocktail } from './controllers/cocktailControlle
 
 const app = express();
 
-// Middleware для парсинга JSON
+// Middleware
 app.use(express.json());
 
 // Маршруты для коктейлей
 app.get('/cocktails', getAllCocktails);
-app.post('/cocktails', createCocktail);
+app.post('/createcocktail', createCocktail);
 
-// Экспортируйте app
 export default app;

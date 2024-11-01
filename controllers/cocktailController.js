@@ -35,5 +35,6 @@ export const createCocktail = async (req, res) => {
         res.status(201).json(cocktail);
     } catch (error) {
         res.status(500).json({ error: 'Ошибка при создании коктейля' });
+        console.error(error)
     }
 };
