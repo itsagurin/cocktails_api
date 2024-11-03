@@ -3,15 +3,6 @@ cocktail-api/
 ├── controllers/
 │       ├── cocktailController.js
 │       └── ingredientController.js
-│   models/
-│       ├── Cocktail.js
-│       └── Ingredient.js
-│   routes/
-│       ├── cocktailRoutes.js
-│       └── ingredientRoutes.js
-│   utils/
-│       ├── db.js (подключение к базе данных)
-│       └── validator.js (валидация данных)
 ├── app.js (основной файл приложения)
 ├── index.js (точка входа)
 ├── tests/
@@ -33,25 +24,7 @@ src/
 controllers/
 
 cocktailController.js: Содержит логику обработки запросов, связанных с коктейлями (GET, POST, PUT, DELETE).
-ingredientController.js: Содержит логику обработки запросов, связанных с ингредиентами (GET, POST, PUT, DELETE).
-
-
-models/
-
-Cocktail.js: Определяет модель данных для коктейля, включая поля id, name, category, instructions, ingredients.
-Ingredient.js: Определяет модель данных для ингредиента, включая поля id, name, description, image.
-
-
-routes/
-
-cocktailRoutes.js: Определяет маршруты API для работы с коктейлями.
-ingredientRoutes.js: Определяет маршруты API для работы с ингредиентами.
-
-
-utils/
-
-db.js: Содержит логику подключения к базе данных PostgreSQL.
-validator.js: Содержит функции для валидации входных данных с помощью библиотеки Joi.
+ingredientController.js: Содержит логику обработки запросов, связанных с ингредиентами (GET, POST, PUT, DELETE)
 
 
 app.js: Основной файл приложения, где настраивается Express-сервер и подключаются маршруты.
